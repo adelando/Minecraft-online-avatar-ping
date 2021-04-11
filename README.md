@@ -1,12 +1,18 @@
 # Minecraft-online-avatar-ping
 A website tool that allows admin and staff to show current online players as avatars
 
+
 Here is a walkthrough to understand the code by Connor Simpson
 
 https://stackoverflow.com/users/1993252/connor-simpson 
 
 
-Starting off, by wrapping your code in $(document).ready this'll only run the code when the page has loaded.
+Starting off, by wrapping your code in
+
+$(document).ready
+ 
+this'll only run the code when the page has loaded.
+//
 
 $(document).ready(() => {
    // The document is ready, let's run some code!
@@ -21,7 +27,9 @@ $(document).ready(() => {
    });
 
 });
-Okay, whilst writing this, I checked the URL provided by OP and saw that it was timing out so I've grabbed a sample response from the Minetools' documentation.
+
+
+I've grabbed a sample response from the Minetools' documentation of the response.
 
 {
   "MaxPlayers": 200,
@@ -37,6 +45,8 @@ Okay, whilst writing this, I checked the URL provided by OP and saw that it was 
   "Version": "1.8.8",
   "status": "OK"
 }
+
+
 So in your JSON response, you can see that Playerlist is a array which can contain multiple things in one variable. You can also iterate through an array, which is what we'll be doing to build the image URLs.
 
 We iterate through an array using forEach.
