@@ -1,0 +1,44 @@
+// Script to query server and images
+
+$(document).ready(() => {
+
+   let url = "https://api.minetools.eu/query/play.aydaacraft.online/25565";
+   $.getJSON(url, response => {
+      if(response.error){
+         $("#rest").html("The server is offline!");
+      }else{
+         //There is no error, hide the div#rest
+         $("#rest").hide();
+    
+         response.Playerlist.forEach(playerName => {
+            $(`<img src="https://cravatar.eu/avatar/${playerName}" />`).appendTo("#user-images");
+         });
+      }
+   });
+
+});
+
+
+//Styling and display
+
+
+<div class="card"> 
+    <div class="icon">
+        <img src="https://cdn.worldvectorlogo.com/logos/minecraft-1.svg">
+    </div>
+    <div class="header">
+        <div class="image">
+            <img src="https://res.cloudinary.com/lmn/image/upload/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/u/n/t/untitled-a5150.jpg" alt="" />
+        </div>
+
+        <h2>Server Status</h2>
+        
+    </div>
+    
+    <!-- This div tag will need to hide when there is no error, or say when there is. -->
+    <div id="rest">Loading...</div>
+    
+    <!-- The user images will be added inside this div. -->
+    <div id="user-images"></div>
+</div>
+
